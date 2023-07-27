@@ -199,7 +199,6 @@
 
     </form>
 
-    <!-- メルマガ登録 -->
   <section id="contact" class="wrapper">
     <h2 class="section-title">Contact Messages</h2>
     <div class="Sign-up-for-newsletter">

@@ -1,8 +1,8 @@
 # okinawa
-##沖縄のカルチャーについての情報発信サイト
+沖縄のカルチャーについての情報発信サイト
 伝統的な沖縄文化と新しい沖縄文化を発信し沖縄の魅力を伝える
 
-###【構成】
+【サイト構成】
 ビーチ
 郷土料理
 伝統芸能
@@ -12,5 +12,15 @@
 コンタクト・メッセージ
 コメント
 
- <div class="comments">は
+DBはmariaDB
+CREATE newsletter;
+USE newsletter;
+
+【ファイル構成】
+index.phpはメインページ
+send.phpにformの投稿内容を送信してDBに保存
+message.phpはお問い合わせ・メッセージ内容の確認テーブル
+fetch_comments.phpはコメント欄（お問い合わせ・メッセージ内）を表示させるためのDB接続
+
+ "<div class="comments">"は
  AJAXを使用してDBより最新のコメントを表示
