@@ -234,60 +234,65 @@
     
 
 
-      <div class="comments">
-    <h2>comments</h2>
-    <dl>
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['selected_messages'])) {
-    $selectedMessages = $_POST['selected_messages'];
-    $selectedMessageContents = [];
+        <div class="comments">
+          <h2>Comments</h2>
+          <button id="show-latest-comments">最新のコメントを表示する</button>
+          <dl id="comment-list">
+              <!-- コメントはここに動的に表示されます -->
+          </dl>
+        </div>
+        <script>
+            // AJAXリクエストを処理してコメントを表示する関数
+            function fetchAndDisplayComments() {
+                // 新しいAJAXリクエストを作成
+                const xhr = new XMLHttpRequest();
 
-    try {
-        $pdo = new PDO(
-            'mysql:host=localhost;dbname=newsletter;charset=utf8',
-            'root',
-            ''
-        );
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+                // AJAXのレスポンスを処理するコールバック関数を設定
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        const commentList = document.getElementById("comment-list");
+                        commentList.innerHTML = xhr.responseText;
+                    }
+                };
 
-        $placeholders = rtrim(str_repeat('?,', count($selectedMessages)), ',');
-        $sql = "SELECT name, message FROM newsletter WHERE message IN ($placeholders) ORDER BY id DESC LIMIT 10";
-        $stmh = $pdo->prepare($sql);
-        $stmh->execute($selectedMessages);
+                // AJAXリクエストをオープン
+                xhr.open("POST", "fetch_comments.php", true);
 
-        while ($row = $stmh->fetch(PDO::FETCH_ASSOC)) {
-            $selectedMessageContents[] = $row;
-        }
-    } catch (PDOException $Exception) {
-        die('接続エラー：' . $Exception->getMessage());
-    }
+                // 必要に応じてリクエストヘッダーを設定（例：フォームデータを送信する場合）
+                // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-    $pdo = null;
+                // AJAXリクエストを送信
+                xhr.send();
+            }
 
-    if (!empty($selectedMessageContents)) {
-        $commentIndex = 1;
-        $commentCount = count($selectedMessageContents);
-        $startIndex = 10 - $commentCount;
+            // 「最新のコメントを表示する」ボタンにクリックイベントリスナーを追加
+            document.getElementById("show-latest-comments").addEventListener("click", fetchAndDisplayComments);
 
-        foreach ($selectedMessageContents as $selectedMessage) {
-            $name = htmlspecialchars($selectedMessage['name']);
-            $message = htmlspecialchars($selectedMessage['message']);
-            $commentClass = 'd' . ($startIndex + $commentIndex);
-            
-            echo '<dt class="t' . $commentIndex . '"></dt>';
-            echo '<dd class="' . $commentClass . '">' . $name . ': ' . $message . '</dd>';
-            
-            $commentIndex++;
-        }
-    } else {
-        echo "<h2>投稿されたメッセージはありません。</h2>";
-    }
-}
-?>
-    </dl>
-</div>
-  
+            // ページ読み込み時にはコメントを表示しない
+            // 最初に「最新のコメントを表示する」ボタンをクリックして取得するようにしましょう
+        </script>
+        <style>
+            /* コメントの親要素を中央寄せにするためのスタイル */
+            .comments {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            /* 「最新のコメントを表示する」ボタンを中央寄せにするためのスタイル */
+            #show-latest-comments {
+                display: block; /* インライン要素をブロック要素に変更 */
+                margin-top: 20px; /* 適切なマージンを追加してボタンを中央寄せに */
+            }
+
+            /* コメントリストを中央寄せにするためのスタイル */
+            #comment-list {
+                text-align: center;
+                margin-top: 20px; /* 適切なマージンを追加してコメントリストを中央寄せに */
+            }
+        </style>
+
 
           
     <section id="fruits">
