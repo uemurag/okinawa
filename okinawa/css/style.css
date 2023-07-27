@@ -1,0 +1,396 @@
+@charset "UTF-8";
+
+
+
+.ryu-jin{
+  display: none;
+}
+
+
+.branding{
+  /* background:linear-gradient(transparent 50%, #D33D75 80%); */
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+b{
+  border-bottom: solid #D33D75; 
+  
+}
+
+ 
+
+html {
+  font-size: 100%;
+}
+body {
+  color: #383e45;
+  font-size: 0.9rem;
+}
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+}
+li {
+  list-style: none;
+}
+.site-title {
+  width: 120px;
+  line-height: 1px;
+  padding: 10px 0;
+}
+.site-title a {
+  display: block;
+}
+.section-title {
+  display: inline-block;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 40px;
+  border-bottom: solid 1px #383e45;
+}
+#contact h2 {
+  display: inline-block;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 40px;
+  border-bottom: solid 1px #383e45;
+}
+.content-title {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+.wrapper {
+  max-width: 960px;
+  margin: 0 auto 40px auto;
+  padding: 0 4%;
+  text-align: center;
+}
+
+/*-------------------------------------------
+ヘッダー
+-------------------------------------------*/
+
+/* パソコン用 */
+@media screen and (min-width: 769px) {
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+#header ul {
+  display: flex;
+  padding: 10px 0;
+}
+#header li {
+  margin-left: 30px;
+}
+#header li a {
+  color: #24292e;
+}
+#header li a:hover {
+  opacity: 0.7;
+}
+}
+
+/*-------------------------------------------
+Mainvisual
+-------------------------------------------*/
+/* #mainvisual {
+  margin-bottom: 80px;
+} */
+#mainvisual img {
+  width: 100%;
+  max-width: 1920px;
+  height: 600px;
+  object-fit: cover;
+}
+
+#mainvisual {/*親div*/
+  position: relative;/*相対配置*/
+}
+
+#mainvisual p {
+  position: absolute;/*絶対配置*/
+  color: rgb(78, 76, 76);
+  font-size: 16px;
+  font-family: 'Tinos', serif;
+  letter-spacing: 4px;
+  top: 400px;
+  left: 80px;
+} 
+@media screen and (max-width: 768px) {  /* 最大768pxまで */
+#mainvisual img {
+  width: 100%;  
+}
+}
+/*-------------------------------------------
+美々ビーチ
+-------------------------------------------*/
+#bibi{
+  margin: 0 auto 0 20px; 
+  width: 180px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #5282B1;
+  background:  #CBC7BE;
+  border-radius: 0.5rem;
+  cursor: pointer;
+ }
+ #beach{
+   margin: 10px auto 0 20px;
+   padding: 24px;
+   width: 300px;
+   background-color: #fff;
+   border: 1px solid #5282B1;
+   border-radius: 0.5rem;
+   display: none;
+ }
+ #beach.on{
+   display: block;
+ }
+ 
+/*-------------------------------------------
+マブヤー
+-------------------------------------------*/
+#jqs-1{
+  margin: 40px;
+}
+#jqs-1 img{
+  border-radius: 0.5rem;
+}
+
+
+
+/*-------------------------------------------
+About
+-------------------------------------------*/
+/* .block_follow ul.sns li a i svg {
+  width: 20px;
+  fill: #FFF;
+} */
+
+#about .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#about img {
+  /* width: 100px; */
+  /* height: 100px; */
+  /* border-radius: 50%; */
+  margin-bottom: 20px;
+}
+#about .content {
+  flex-direction: column;
+}
+#about img {
+  margin-right: 0;
+}
+
+/*-------------------------------------------
+Food of Okinawa
+-------------------------------------------*/
+#FoodofOkinawa ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+#FoodofOkinawa li {
+  width: 32%;
+  text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+#FoodofOkinawa ul {
+  /* display: flex; */
+  /* align-items: center; */
+  flex-direction: column;
+  /* width: 150%; */
+  /* height: auto; */
+  /* align-items: center; */
+}
+
+#FoodofOkinawa li {
+  width: 100%;
+  margin-bottom: 30px;
+  text-align: center;
+  /* display: flex; */
+  /* align-items: center; */
+}
+.food {
+  max-width: 331px;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  text-align: left;
+  margin: auto;
+  /* display: flex; */
+  /* align-items: center; */
+}
+/* .he { */
+  /* display: flex; */
+  /* align-items: center;   */
+/* }    */
+}
+/*-------------------------------------------
+traditional art
+-------------------------------------------*/
+#traditionalart {
+  flex-direction: column;
+}
+
+.text{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.eisa {
+  width: 560px;
+    text-align: left;
+}
+@media screen and (max-width: 768px) {
+  .eisa {
+   margin: 10px;
+   width: 100%;
+   text-align: left;    
+}
+}
+.youtube iframe {
+  width: 100%; 
+  max-width: 560px;
+  height: auto;
+  aspect-ratio: 16/9;
+}
+/* .youtube{
+  width: 560px; 
+  height: 315px;
+ 
+iframe{
+width: 280px;
+height: 157px;
+margin: 0 50px;
+
+
+iframe{
+margin: 30px 25%;
+width:560px;
+height: 315px;
+
+} */
+
+@media screen and (max-width: 768px) {
+/* .youtube { */
+  /* position: relative; */
+  /* padding-top: 56.25%; */
+/* } */
+/* .youtube{ */
+  /* position: absolute; */
+  /* top: 0; */
+  /* left: 0; */
+  /* width: 100%; */
+  /* height: 100%;   */
+/* } */
+  /* position: absolute; */
+  /* top: 0; */
+  /* left: 0; */
+  /* width: 100%; */
+  /* height: 100%; */
+
+  /* margin: 10px; */
+  /* width: 100%; */
+  /* height: auto; */
+}
+
+
+
+/*-------------------------------------------
+Okinawan Dialect
+-------------------------------------------*/
+.link {
+  color: blue;
+} 
+/*-------------------------------------------
+  fruits
+  -------------------------------------------*/
+.slider {
+    text-align: center;
+}
+
+
+*----------------- --------------------------
+Featured Hotels
+-------------------------------------------*/
+#FeaturedHotels{
+  width: 100%;
+  /* margin: 10px; */
+}
+ 
+
+#Hotels ul{
+  display:flex;
+  justify-content: center; 
+} 
+#Hotels img{
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+}
+.map iframe {
+  width: 100%; 
+  max-width: 560px;
+  height: auto;
+  aspect-ratio: 4/3;
+}
+
+/*-------------------------------------------
+footer
+-------------------------------------------*/
+#footer {
+  font-size: 0.5rem;
+  padding: 10px 0;
+  text-align: center;
+}
+
+
+/* .Sign-up-for-newsletter{
+  display:inline-block;
+  align-items: center;
+  
+} */
+
+.me{
+  width: 386px;
+  margin: 0 auto;
+  /* border: 1px solid #cccccc;  
+  border-radius : 2%;  */
+}
+
+.me div{
+ margin: 32px;
+}
+
+  
+
+
+.mform{
+  justify-content: center; 
+}
+
+.comments{
+  text-align: center
+}
+.comments dd{
+  width: 600px;
+  border-bottom: solid 1px #c8c8c8;
+  padding: 15px;
+}
+
+/* http://okinawa-ureshi-sa/index.php */
