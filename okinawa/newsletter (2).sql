@@ -22,8 +22,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE DATABASE `newsletter`; -- データベース名
-USE `newsletter`;  --データベース名
--- ↑ヒント
+USE `newsletter`;  -- データベース名
+
+
 -- --------------------------------------------------------
 
 --
